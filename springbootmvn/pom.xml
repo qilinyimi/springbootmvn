@@ -1,10 +1,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>kylin.yimi.yiyi</groupId>
+<!--   <groupId>kylin.yimi.yiyi</groupId> -->
   <artifactId>springbootmvn</artifactId>
   <packaging>jar</packaging>
-  <version>0.1-SNAPSHOT</version>
+<!--   <version>0.1-SNAPSHOT</version> -->
   <name>springbootmvn</name>
   <parent>
 	<groupId>kylin.yimi.yiyi</groupId>
@@ -17,11 +17,18 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <!-- 增加对groovy支持 -->
+    <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
+<!--    	 <dependency> -->
+<!--     <groupId>org.codehaus.groovy</groupId> -->
+<!--     <artifactId>groovy-all</artifactId> -->
+<!--     <version>2.5.0-alpha-1</version> -->
+<!-- 	</dependency> -->
   </dependencies>
   <build>
 	<plugins>
-		<plugin><groupId>
-		org.springframework.boot</groupId>
+		<plugin>
+		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-maven-plugin</artifactId>
 		</plugin>
 	</plugins>

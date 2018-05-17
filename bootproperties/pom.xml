@@ -13,6 +13,6 @@
   </parent>
   <properties>
 		<prj.version>0.1-SNAPSHOT</prj.version>
-		<junit.version>4.12</junit.version>
+<!-- 		<junit.version>4.12</junit.version> -->
   </properties>
 </project>
