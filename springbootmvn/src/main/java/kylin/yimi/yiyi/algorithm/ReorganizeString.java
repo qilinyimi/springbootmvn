@@ -44,10 +44,9 @@ public class ReorganizeString {
 			//不可以实现
 			return "不可重排";
 		}
-//		StringBuilder sb = new StringBuilder();
-		///排字母
-		Map<Character,Integer> copymap = new HashMap<>();
+		Map<Character,Integer> copymap = new HashMap<>();//拷贝一份cmap
 		copymap.putAll(cmap);
+		///排字母
 		char[] charsr = new char[copymap.size()];
 		for(int i=0;i<charsr.length;i++) {
 //			排序
@@ -71,7 +70,6 @@ public class ReorganizeString {
 		char[] charArray = sb.toString().toCharArray();//按字母数量多少排序结果
 //		LinkedList<Character> link = new LinkedList<>();
 		List<Character> list = new ArrayList<>();
-//		StringBuilder sbs = new StringBuilder();//重排
 		for(int i=0;i<charArray.length;i++) {
 			int bs = (i/max)<1?1:(i/max)+1;
 			if(bs==1) {
@@ -79,31 +77,11 @@ public class ReorganizeString {
 				continue;
 			}
 //			link.add((i%max+1)*bs, charArray[i]);
-//			if(list.size()=)
-			list.add((i%max+1)*bs-1, charArray[i]);
-//			list.add(e);
-//			sbs.insert(offset, i)
+			//计算重排位置
+			int p = (i%max+1)*bs-1;
+			list.add(p, charArray[i]);
 		}
-		
-
-//		for(int i=0;i<chars.length;i++) {
-////			插入位置   i/max 是倍数 （1%max+1）*(i/max) 是位置
-//			link.add((1%max+1)*(i/max), element);
-//		}
 		return list.toString();
-	}
-	protected class Node{
-		private Node pre;
-		private Node next;
-		private String c;
-		Node(String c){
-			this.c = c;
-		}
-		String getChar() {
-			return c;
-		}
-		
-		
 	}
 }
 
