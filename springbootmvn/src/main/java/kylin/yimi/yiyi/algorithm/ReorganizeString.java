@@ -1,6 +1,9 @@
 package kylin.yimi.yiyi.algorithm;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -18,7 +21,7 @@ import java.util.Map;
  */
 public class ReorganizeString {
 	public static void main(String[] args) {
-	String s = "abaacba";
+	String s = "abaacbabbcc";
 	System.out.println(getReorganizeString(s));
 	}
 
@@ -41,11 +44,66 @@ public class ReorganizeString {
 			//不可以实现
 			return "不可重排";
 		}
-		StringBuilder sb = new StringBuilder();
-		char[] charsr = new char[chars.length];
-		for(Character ckey:cmap.keySet()) {
-//			cmap.get
+//		StringBuilder sb = new StringBuilder();
+		///排字母
+		Map<Character,Integer> copymap = new HashMap<>();
+		copymap.putAll(cmap);
+		char[] charsr = new char[copymap.size()];
+		for(int i=0;i<charsr.length;i++) {
+//			排序
+			int maxcc = 0;
+			for(Character ckey:copymap.keySet()) {
+				Integer cunum = copymap.get(ckey);
+				if(maxcc<cunum) {
+					maxcc = cunum;
+					charsr[i] = ckey;
+				}
+			}
+			copymap.remove(charsr[i]);
 		}
-		return "可重拍";
+		StringBuilder sb = new StringBuilder();//重排
+		for(char c:charsr) {
+			Integer integer = cmap.get(c);
+			for(int i=0;i<integer;i++) {
+				sb.append(c);
+			}
+		}
+		char[] charArray = sb.toString().toCharArray();//按字母数量多少排序结果
+//		LinkedList<Character> link = new LinkedList<>();
+		List<Character> list = new ArrayList<>();
+//		StringBuilder sbs = new StringBuilder();//重排
+		for(int i=0;i<charArray.length;i++) {
+			int bs = (i/max)<1?1:(i/max)+1;
+			if(bs==1) {
+				list.add(i, charArray[i]);
+				continue;
+			}
+//			link.add((i%max+1)*bs, charArray[i]);
+//			if(list.size()=)
+			list.add((i%max+1)*bs-1, charArray[i]);
+//			list.add(e);
+//			sbs.insert(offset, i)
+		}
+		
+
+//		for(int i=0;i<chars.length;i++) {
+////			插入位置   i/max 是倍数 （1%max+1）*(i/max) 是位置
+//			link.add((1%max+1)*(i/max), element);
+//		}
+		return list.toString();
+	}
+	protected class Node{
+		private Node pre;
+		private Node next;
+		private String c;
+		Node(String c){
+			this.c = c;
+		}
+		String getChar() {
+			return c;
+		}
+		
+		
 	}
 }
+
