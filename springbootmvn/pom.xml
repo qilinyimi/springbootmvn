@@ -17,6 +17,10 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
+    </dependency>
     <!-- 增加对groovy支持 -->
     <!-- https://mvnrepository.com/artifact/org.codehaus.groovy/groovy-all -->
 <!--    	 <dependency> -->
@@ -30,6 +34,7 @@
 		<plugin>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-maven-plugin</artifactId>
+		<executions><execution><goals><goal>repackage</goal></goals></execution></executions>
 		</plugin>
 	</plugins>
   </build>
