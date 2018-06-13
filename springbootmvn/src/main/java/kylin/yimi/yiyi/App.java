@@ -13,6 +13,7 @@ public class App
 {
     public static void main( String[] args )
     {
+//    	SpringApplication.BANNER_LOCATION_PROPERTY_VALUE="ssss";
     	SpringApplication.run(App.class, args);
 //        System.out.println( "Hello World!" );
     }

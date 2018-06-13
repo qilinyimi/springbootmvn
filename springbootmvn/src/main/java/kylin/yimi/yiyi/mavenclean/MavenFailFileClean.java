@@ -21,7 +21,7 @@ public class MavenFailFileClean {
 		if(file.isFile()){
 			String filename = file.getName();
 			System.out.println("文件:"+filename);
-			if(filename.endsWith("lastUpdated")){
+			if(filename.endsWith("lastUpdated")||(filename.indexOf("lastUpdated")>0&&filename.endsWith("properties"))){
 				file.delete();
 				System.out.println("删除文件:"+filename);
 				sb.append(";"+filename);

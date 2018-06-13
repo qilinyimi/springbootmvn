@@ -1,0 +1,4 @@
+#这是注释内容，yaml语言必须“:”号两边必须有空格
+spring :
+ main :
+  banner-mode : "console"
